@@ -1,0 +1,256 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f0ec;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Шапка */
+.header {
+    background-color: #7a8c9e;
+    padding: 2rem;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.header-text h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #333;
+    line-height: 1;
+}
+
+.header-text p {
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 1rem;
+}
+
+.header-image img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Общие стили секций */
+.section {
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #6d5b4e;
+}
+
+.section p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #8c7a6b;
+}
+
+.section ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section li {
+    font-size: 1.1rem;
+    margin: 0.8rem 0;
+    color: white;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 8px;
+}
+
+/* Светлая секция */
+.section-light {
+    background-color: #dcdcdc;
+    color: #8c7a6b;
+}
+
+.section-light h2,
+.section-light p {
+    color: #8c7a6b;
+}
+
+.section-light li {
+    color: #333;
+    background-color: rgba(255,255,255,0.3);
+}
+
+/* Темная секция */
+.section-dark {
+    background-color: #7a8c9e;
+    color: white;
+}
+
+.section-dark h2,
+.section-dark p {
+    color: white;
+}
+
+/* Блок теста */
+.section-test {
+    background-color: #dcdcdc;
+    color: #8c7a6b;
+}
+
+.section-test p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.test-placeholder {
+    background-color: #eaeaea;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.test-placeholder h2 {
+    font-size: 3.5rem;
+    color: #8c7a6b;
+    font-weight: bold;
+}
+
+/* Иллюстрация с пузырьками */
+.illustration {
+    position: relative;
+    height: 300px;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble {
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.bubble-1 {
+    width: 60px;
+    height: 60px;
+    top: 20%;
+    left: 15%;
+}
+
+.bubble-2 {
+    width: 40px;
+    height: 40px;
+    top: 10%;
+    right: 20%;
+}
+
+.bubble-3 {
+    width: 80px;
+    height: 80px;
+    bottom: 15%;
+    left: 30%;
+}
+
+.bubble-4 {
+    width: 50px;
+    height: 50px;
+    bottom: 25%;
+    right: 10%;
+}
+
+.fish-container {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.fish-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+/* Подвал */
+.footer {
+    background-color: #a6927d;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    border-top: 2px solid #8c7a6b;
+}
+
+.footer p {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer li {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .header-text h1 {
+        font-size: 3rem;
+    }
+
+    .header-image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .test-placeholder h2 {
+        font-size: 2.5rem;
+    }
+}
