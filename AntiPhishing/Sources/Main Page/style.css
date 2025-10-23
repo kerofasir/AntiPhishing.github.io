@@ -1,123 +1,203 @@
+/* === Общие стили === */
+:root {
+  --bg-main: #F0EBE8;
+  --bg-dark: #6E7F93;
+  --bg-light: #CEC9C6;
+  --bg-footer: #A38970;
+  --text-dark: #3A4C60;
+  --text-light: #F0EBE8;
+  --text-accent: #A38970;
+}
+
 body {
   margin: 0;
   font-family: 'Trebuchet MS', sans-serif;
-  background-color: #F0EBE8;
-  color: #3A4C60;
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  line-height: 1.6;
 }
 
-/* --- Hero --- */
+/* === Hero === */
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #6E7F93;
-  color: #F0EBE8;
+  background-color: var(--bg-dark);
   border-radius: 40px;
   padding: 80px;
   margin: 40px;
+  color: var(--text-light);
+  flex-wrap: wrap;
 }
 
-.hero-text h1 {
-  font-size: 160px;
+.hero__text h1 {
+  font-size: 8rem;
   line-height: 1;
-  color: #3A4C60;
+  color: var(--text-dark);
   margin: 0;
 }
 
-.hero-text p {
-  font-size: 48px;
+.hero__text p {
+  font-size: 2rem;
   font-weight: 700;
   margin-top: 40px;
 }
 
-.hero-image img {
-  height: 400px;
+.hero__image img {
+  max-width: 380px;
+  height: auto;
 }
 
-/* --- About --- */
+/* === About === */
 .about {
-  background-color: #CEC9C6;
+  background-color: var(--bg-light);
   border-radius: 40px;
   padding: 60px;
   margin: 60px 40px;
-  color: #A38970;
+  color: var(--text-accent);
 }
 
 .about h2 {
-  font-size: 64px;
+  font-size: 3rem;
   text-align: center;
   margin-bottom: 40px;
 }
 
 .about p {
-  font-size: 32px;
-  line-height: 1.5;
+  font-size: 1.5rem;
+  text-align: justify;
+  line-height: 1.7;
 }
 
-/* --- Tips --- */
+/* === Tips === */
 .tips {
   margin: 80px 40px;
   text-align: center;
 }
 
-.tips h2 {
-  font-size: 55px;
-  color: #3A4C60;
+.tips__image img {
+  width: 150px;
   margin-bottom: 40px;
 }
 
-.tips-list {
-  background-color: #6E7F93;
-  border-radius: 40px;
-  padding: 60px;
+.tips h2 {
+  font-size: 2.8rem;
+  color: var(--text-dark);
+  margin-bottom: 40px;
 }
 
-.tips-list ul {
-  list-style: disc;
-  color: #F0EBE8;
-  font-size: 35px;
-  line-height: 1.7;
-  text-align: left;
+.tips__list {
+  background-color: var(--bg-dark);
+  border-radius: 40px;
+  padding: 60px;
+  color: var(--text-light);
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* --- Test --- */
+.tips__list ul {
+  list-style-type: disc;
+  text-align: left;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-left: 40px;
+}
+
+/* === Test === */
 .test {
-  background-color: #CEC9C6;
+  background-color: var(--bg-light);
   border-radius: 40px;
   margin: 80px 40px;
   padding: 60px;
-  color: #A38970;
   text-align: center;
+  color: var(--text-accent);
 }
 
 .test h2 {
-  font-size: 48px;
+  font-size: 2.5rem;
   margin-bottom: 60px;
 }
 
-.test-box {
+.test__box {
   background-color: #D9D9D9;
   border-radius: 40px;
-  padding: 120px;
+  padding: 100px 20px;
 }
 
-.test-box p {
-  font-size: 128px;
+.test__box p {
+  font-size: 5rem;
   font-weight: 700;
-  color: #A38970;
+  color: var(--text-accent);
   margin: 0;
 }
 
-/* --- Footer --- */
-footer {
-  background-color: #A38970;
-  color: #F0EBE8;
+/* === Footer === */
+.footer {
+  background-color: var(--bg-footer);
+  color: var(--text-light);
   text-align: center;
   padding: 60px 20px;
-  font-size: 18px;
-  line-height: 2;
+  font-size: 1rem;
   font-weight: 700;
-  border-top: 5px solid #A38970;
+  line-height: 2;
+  border-top: 5px solid var(--bg-footer);
+}
+
+/* === Адаптив === */
+@media (max-width: 1200px) {
+  .hero__text h1 {
+    font-size: 6rem;
+  }
+  .tips__list ul {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 40px;
+  }
+  .hero__text h1 {
+    font-size: 5rem;
+  }
+  .hero__text p {
+    font-size: 1.6rem;
+  }
+  .hero__image img {
+    margin-top: 40px;
+    width: 250px;
+  }
+  .about h2 {
+    font-size: 2.5rem;
+  }
+  .tips h2 {
+    font-size: 2.2rem;
+  }
+  .test__box p {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero, .about, .tips, .test {
+    margin: 20px;
+    padding: 40px 20px;
+  }
+  .hero__text h1 {
+    font-size: 3.5rem;
+  }
+  .hero__text p {
+    font-size: 1.3rem;
+  }
+  .about p, .tips__list ul {
+    font-size: 1.1rem;
+  }
+  .test h2 {
+    font-size: 1.5rem;
+  }
+  .test__box p {
+    font-size: 2rem;
+  }
 }
