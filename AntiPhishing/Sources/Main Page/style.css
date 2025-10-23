@@ -1,4 +1,3 @@
-/* Общие стили */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +11,6 @@ body {
     line-height: 1.6;
 }
 
-/* Шапка */
 .header {
     background-color: #7a8c9e;
     padding: 2rem;
@@ -51,7 +49,6 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Общие стили секций */
 .section {
     padding: 2rem;
     margin: 2rem 0;
@@ -88,7 +85,6 @@ body {
     border-radius: 8px;
 }
 
-/* Светлая секция */
 .section-light {
     background-color: #dcdcdc;
     color: #8c7a6b;
@@ -104,7 +100,6 @@ body {
     background-color: rgba(255,255,255,0.3);
 }
 
-/* Темная секция */
 .section-dark {
     background-color: #7a8c9e;
     color: white;
@@ -115,7 +110,6 @@ body {
     color: white;
 }
 
-/* Блок теста */
 .section-test {
     background-color: #dcdcdc;
     color: #8c7a6b;
@@ -140,7 +134,6 @@ body {
     font-weight: bold;
 }
 
-/* Иллюстрация с пузырьками */
 .illustration {
     position: relative;
     height: 300px;
@@ -202,7 +195,6 @@ body {
     object-fit: contain;
 }
 
-/* Подвал */
 .footer {
     background-color: #a6927d;
     padding: 2rem;
@@ -226,7 +218,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
