@@ -1,197 +1,215 @@
-/* ===== Общие настройки ===== */
+:root{
+  /* цвета */
+  --beige: #A38970;
+  --light-bg: #F0EBE8;
+  --muted-bg: #CEC9C6;
+  --blue-block: #6E7F93;
+  --dark-text: #3A4C60;
+
+  /* масштабируемые параметры */
+  --page-padding-x: 5vw;   /* отступы слева/справа — 5% от ширины */
+  --block-gap: 5vw;       /* расстояние между блоками */
+  --block-radius: 2vw;    /* border-radius масштабируется */
+  --content-max-width: 1200px;
+}
+
+/* --- Базовые стили --- */
+* { box-sizing: border-box; }
+html,body { height:100%; }
 body {
   margin: 0;
-  font-family: 'Trebuchet MS', sans-serif;
-  background: #F0EBE8;
-  color: #3A4C60;
-  overflow-x: hidden;
+  font-family: "Trebuchet MS";
+  background: var(--light-bg);
+  color: var(--dark-text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.35;
+  font-size: clamp(14px, 0.9vw + 12px, 18px); /* адаптивный базовый размер */
 }
 
-h1, h2, h3, p {
-  margin: 0;
-  padding: 0;
+/* Контейнер, обеспечивающий ровно 5% отступа по бокам */
+.site {
+  padding-left: var(--page-padding-x);
+  padding-right: var(--page-padding-x);
+  max-width: calc(var(--content-max-width) + (var(--page-padding-x) * 2));
+  margin: 0 auto;
 }
 
-/* ===== HEADER ===== */
-.site-header {
-  position: relative;
-  width: 100%;
-  height: 106px;
-  background: #A38970;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 42px;
-  box-sizing: border-box;
-}
-
-.site-header .logo {
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 37px;
-  color: #F0EBE8;
-}
-
-.site-header .nav-link {
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 37px;
-  color: #F0EBE8;
-  text-decoration: none;
-}
-
-.site-header .nav-link:hover {
-  text-decoration: underline;
-}
-
-/* ===== HERO (AntiPhishing блок) ===== */
-.hero {
-  position: relative;
-  width: 95%;
-  max-width: 1368px;
-  margin: 142px auto 0;
-  height: 631px;
-  background: #6E7F93;
-  border-radius: 50px;
-  color: #F0EBE8;
+/* Общий блок-класс */
+.block {
+  background: white;
+  border-radius: var(--block-radius);
+  padding: clamp(16px, 2vw, 32px);
+  margin-bottom: var(--block-gap);
+  box-shadow: 0 0 0 rgba(0,0,0,0); /* возможная тень при желании */
   overflow: hidden;
 }
 
-.hero-title {
-  position: absolute;
-  top: 202px;
-  left: 4.95%;
-  right: 44.12%;
-  font-weight: 700;
-  font-size: 160px;
-  line-height: 186px;
-  color: #3A4C60;
+/* Специфичные блоки */
+.block--header {
+  background: var(--beige);
+  color: #fff;
+  border-radius: var(--block-radius);
+  padding: clamp(10px, 1.6vw, 20px);
 }
 
-.hero-subtitle {
-  position: absolute;
-  top: 605px;
-  left: 4.95%;
-  right: 39.65%;
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
   font-weight: 700;
-  font-size: 48px;
-  line-height: 56px;
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: #fff;
+}
+
+/* Навигация */
+.nav { display:flex; gap:1rem; align-items:center; }
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  font-weight:600;
+  font-size: clamp(13px, 1.2vw, 16px);
+}
+.nav__link:hover { text-decoration: underline; }
+
+/* Hero */
+.block--hero {
+  background: var(--blue-block);
+  color: #fff;
+  display: block;
+}
+.hero__inner {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.hero__text { flex: 1 1 320px; }
+.hero__title {
+  margin: 0 0 0.4rem 0;
+  font-weight: 800;
+  line-height: 0.95;
+  font-size: clamp(34px, 6vw, 72px); /* крупная адаптивная надпись */
+  color: #304457; /* чуть затемнённый */
+}
+.hero__subtitle {
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(14px, 1.2vw, 18px);
   color: #F0EBE8;
 }
 
-.hero img {
-  position: absolute;
-  top: 205px;
-  right: 6.63%;
-  height: 501px;
-  border-radius: 50px;
-  transform: scaleX(-1);
+/* Картинка в герое */
+.img--round {
+  width: min(35%, 220px);
+  height: auto;
+  display: block;
+  border-radius: 50%;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-/* ===== Блок «Что плохого в фишинге?» ===== */
-.bad-section {
+/* Информационный блок */
+.block--info {
+  background: var(--muted-bg);
+  color: var(--beige);
+}
+.block--info h2 {
+  margin-top:0;
+  color: var(--beige);
+  font-size: clamp(20px, 2.6vw, 32px);
+  text-align:center;
+}
+.lead {
+  color: rgba(58,76,96,0.8);
+  margin: 1rem 0 0 0;
+}
+
+/* Decorative block with bubbles */
+.block--decor {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+.decor__inner {
+  display:flex;
+  gap:1rem;
+  align-items:center;
+  justify-content: center;
+  padding: 3vw 0;
   position: relative;
-  width: 95%;
-  max-width: 1368px;
-  margin: 809px auto 0;
-  background: #CEC9C6;
-  border-radius: 50px;
-  padding: 50px 5%;
-  box-sizing: border-box;
+}
+.decor__bubbles { max-width: 140px; opacity: .9; }
+.img--round.small { width: 14vw; max-width: 140px; }
+
+/* Tips list */
+.block--tips {
+  background: var(--blue-block);
+  color: #fff;
+}
+.tips__title {
+  text-align:center;
+  color: #fff;
+  font-size: clamp(18px, 2.4vw, 28px);
+}
+.tips__list {
+  margin: 1.2rem 0 0 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+  color: #fff;
+  max-width: 900px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
-.bad-section h2 {
-  font-weight: 700;
-  font-size: 64px;
-  line-height: 74px;
-  text-align: center;
-  color: #A38970;
-  margin-bottom: 40px;
+/* Test placeholder */
+.block--test {
+  background: var(--muted-bg);
+  color: var(--beige);
 }
-
-.bad-section p {
-  font-weight: 700;
-  font-size: 35px;
-  line-height: 50px;
-  color: #A38970;
-}
-
-/* ===== Блок «Памятка» ===== */
-.memo {
-  position: relative;
-  width: 95%;
-  max-width: 1368px;
-  margin: 1904px auto 0;
-  background: #6E7F93;
-  border-radius: 50px;
-  color: #F0EBE8;
-  padding: 50px 5%;
-  box-sizing: border-box;
-}
-
-.memo h2 {
-  font-weight: 700;
-  font-size: 55px;
-  line-height: 69px;
-  text-align: center;
-  color: #3A4C60;
-  margin-bottom: 40px;
-}
-
-.memo p {
-  font-weight: 700;
-  font-size: 35px;
-  line-height: 60px;
-}
-
-/* ===== Блок «Тест» ===== */
-.test-block {
-  position: relative;
-  width: 95%;
-  max-width: 1368px;
-  margin: 2802px auto 0;
-  background: #CEC9C6;
-  border-radius: 50px;
-  text-align: center;
-  color: #A38970;
-  padding: 55px 5%;
-  box-sizing: border-box;
-}
-
-.test-block h2 {
-  font-weight: 700;
-  font-size: 51px;
-  line-height: 69px;
-  margin-bottom: 40px;
-}
-
 .test-placeholder {
-  background: #D9D9D9;
-  border-radius: 50px;
-  height: 514px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 128px;
-  font-weight: 700;
-  color: #A38970;
+  background: #e6e2df;
+  border-radius: calc(var(--block-radius) - 0.5vw);
+  padding: clamp(24px, 4vw, 48px);
+  min-height: 180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top: 1rem;
+}
+.test-placeholder__text {
+  color: var(--beige);
+  font-size: clamp(20px, 2.8vw, 36px);
+  font-weight:700;
 }
 
-/* ===== FOOTER ===== */
-.site-footer {
-  position: relative;
-  width: 100%;
-  height: 239px;
-  background: #A38970;
-  color: #F0EBE8;
-  text-align: center;
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 37px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-  padding: 0 2rem;
-  box-sizing: border-box;
+/* Footer */
+.block--footer {
+  background: var(--beige);
+  color: #fff;
+  padding: clamp(12px, 1.6vw, 20px);
+  text-align:center;
+}
+.footer__inner { display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+.nav--footer .nav__link { color: #fff; opacity: .95; }
+
+/* Article styles */
+.block--article {
+  background: white;
+  color: var(--dark-text);
+}
+.block--article h1 { margin-top:0; font-size: clamp(24px, 3.6vw, 40px); }
+
+/* --- Адаптив поведение --- */
+@media (max-width: 720px) {
+  .hero__inner { gap: 1rem; }
+  .img--round { width: 40%; }
+  .hero__title { font-size: clamp(28px, 9vw, 44px); }
+  .footer__inner { flex-direction: column; gap: .5rem; }
 }
