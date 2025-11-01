@@ -1,60 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anti-Phishing: Узнай, сможешь ли ты отличить фишинг</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AntiPhishing — Главная</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <img src="assets/img/logo.svg" alt="Логотип Anti-Phishing" class="logo" />
-      <nav class="main-nav">
-        <a href="#" class="nav-link">Главная</a>
-        <a href="article.html" class="nav-link">Статьи</a>
-        <a href="#" class="nav-link">Тест</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Проверь себя: сможешь ли ты отличить фишинговое письмо?</h1>
-        <p>Интерактивный тест, который покажет, насколько ты внимателен к деталям и знаешь признаки мошеннических писем.</p>
+  <div class="site"> <!-- 5vw padding left/right задан в CSS -->
+    <header class="site__header block block--header" role="banner">
+      <div class="header__inner">
+        <div class="brand">AntiPhishing</div>
+        <nav class="nav" aria-label="Главная навигация">
+          <a href="index.html" class="nav__link">Главная</a>
+          <a href="article.html" class="nav__link">Статья</a>
+        </nav>
       </div>
-    </section>
+    </header>
 
-    <section class="info">
-      <h2>Что такое фишинг?</h2>
-      <p>Фишинг — это вид интернет-мошенничества, когда злоумышленники выдают себя за надёжные компании или сервисы, чтобы получить личные данные, пароли или доступ к деньгам.</p>
-      <p>Обычно фишинговые письма выглядят правдоподобно, но имеют мелкие несоответствия: ошибки, подозрительные ссылки или странные домены отправителей.</p>
-    </section>
+    <main class="site__main" role="main">
+      <!-- Hero -->
+      <section class="block block--hero">
+        <div class="hero__inner">
+          <div class="hero__text">
+            <h1 class="hero__title">Anti<br>Phishing</h1>
+            <p class="hero__subtitle">«Не клюй на крючок!<br>Как не попасться в сети фишера»</p>
+          </div>
+          <div class="hero__media">
+            <!-- Поменяйте путь на ваши реальные изображения -->
+            <img src="assets/img/fish-circle.png" alt="Логотип рыбки" class="img--round">
+          </div>
+        </div>
+      </section>
 
-    <section class="tips">
-      <h2>Как не попасться?</h2>
-      <ul>
-        <li>Проверяйте адрес отправителя — даже если логотип выглядит знакомо.</li>
-        <li>Не переходите по ссылкам из подозрительных писем.</li>
-        <li>Не вводите личные данные на незнакомых сайтах.</li>
-        <li>Используйте двухфакторную аутентификацию.</li>
-      </ul>
-    </section>
+      <!-- Info block -->
+      <section class="block block--info">
+        <h2>Что плохого в фишинге?</h2>
+        <p class="lead">Donec lacinia, sapien at volutpat lacinia, magna elit dapibus mauris, eget iaculis lorem justo non tortor. Nunc lacus libero, sagittis sit amet ullamcorper non, laoreet eu est. Vestibulum molestie est vel ornare finibus.</p>
+      </section>
 
-    <section class="test-block">
-      <h2>Пройди тест</h2>
-      <p>Узнай, сможешь ли ты отличить подделку от настоящего письма.</p>
-      <div class="test-placeholder">
-        <p>Здесь позже появится интерактивный тест (Typeform)</p>
+      <!-- Decorative / bubbles -->
+      <section class="block block--decor">
+        <div class="decor__inner">
+          <img src="assets/img/bubbles-left.svg" alt="" aria-hidden="true" class="decor__bubbles decor__bubbles--left">
+          <div class="decor__center">
+            <img src="assets/img/fish-small.png" alt="Рыбка" class="img--round small">
+          </div>
+          <img src="assets/img/bubbles-right.svg" alt="" aria-hidden="true" class="decor__bubbles decor__bubbles--right">
+        </div>
+      </section>
+
+      <!-- Checklist -->
+      <section class="block block--tips">
+        <h3 class="tips__title">Так как же не попасться на фишинг?</h3>
+        <ul class="tips__list">
+          <li>Проверяйте адрес отправителя и ссылки перед кликом.</li>
+          <li>Не передавайте пароли и коды доступа по почте/соцсетям.</li>
+          <li>Используйте двухфакторную аутентификацию.</li>
+          <li>Обновляйте ПО и антивирус.</li>
+          <li>Будьте осторожны с вложениями.</li>
+        </ul>
+      </section>
+
+      <!-- Typeform placeholder -->
+      <section class="block block--test">
+        <h3>Для закрепления материала — тест</h3>
+        <div class="test-placeholder" aria-label="Место для embedded Typeform">
+          <!-- Здесь позже будет iframe Typeform -->
+          <p class="test-placeholder__text">Здесь будет встроен Typeform (заглушка)</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site__footer block block--footer" role="contentinfo">
+      <div class="footer__inner">
+        <p>© <span id="year"></span> AntiPhishing. Все права защищены.</p>
+        <nav class="nav nav--footer" aria-label="Футер навигация">
+          <a href="index.html" class="nav__link">Главная</a>
+          <a href="article.html" class="nav__link">Статья</a>
+        </nav>
       </div>
-    </section>
-  </main>
+    </footer>
+  </div>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2025 Anti-Phishing Project — обучайся безопасности онлайн</p>
-    </div>
-  </footer>
+  <script>
+    // Авто-подстановка года в футере
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
