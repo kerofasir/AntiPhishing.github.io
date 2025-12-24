@@ -1,0 +1,783 @@
+:root {
+  --DarkBrown: #a38970;
+  --LightBrown: #d0c5bd;
+  --SoftWhite: #f0ebe8;
+  --LightBlue: rgb(110, 127, 147);
+  --DarkBlue: rgb(58, 76, 96);
+
+  --ContentMaxWidth: 1300px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
+}
+
+body {
+  font-family: "Trebuchet MS", "Fira Sans Condensed", sans-serif;
+  line-height: 1.5;
+  background: var(--SoftWhite);
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.Header,
+.Footer {
+  width: 100%;
+  background: var(--DarkBrown);
+  color: var(--SoftWhite);
+}
+
+.AP_Header,
+.AP_Footer {
+  padding: 0 clamp(10px, 5vw, 80px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--ContentMaxWidth);
+  margin: 0 auto;
+}
+
+.AP_Name {
+  font-weight: bold;
+  font-size: 33px;
+}
+
+.AP_Navigation {
+  display: flex;
+}
+
+.AP_Navigation_Link {
+  color: var(--SoftWhite);
+  text-decoration: none;
+  font-size: 33px;
+}
+
+.AP_Navigation_Link:hover {
+  text-decoration: underline;
+}
+
+.AP_Main {
+  margin: 3vw auto;
+  padding: 0 clamp(10px, 5vw, 80px);
+  box-sizing: border-box;
+}
+
+.AP_Main_Content {
+  max-width: var(--ContentMaxWidth);
+  margin: 0 auto;
+}
+
+.AP_Block {
+  background: var(--SoftWhite);
+  padding: 2.5rem;
+  margin-bottom: 3vw;
+  border-radius: 50px;
+}
+
+.AP_Banner_Block {
+  background: var(--LightBlue);
+}
+
+.AP_Banner {
+  gap: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.AP_Banner_SpeechBubble {
+  background: var(--DarkBlue);
+  color: var(--SoftWhite);
+  padding: 2.5rem;
+  border-radius: 30px;
+  max-width: 65%;
+  position: relative;
+  z-index: 2;
+}
+
+.AP_Banner_SpeechBubble::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 66%;
+  width: 0;
+  height: 0;
+  border-left: 20px solid var(--DarkBlue);
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.AP_Banner_Subtitle {
+  text-align: center;
+  font-size: 50px;
+  line-height: normal;
+  color: var(--SoftWhite);
+  font-weight: normal;
+}
+
+.AP_Banner_Image {
+  width: auto;
+}
+
+.AP_Term_Block,
+.AP_Big_Block,
+.AP_Victim_Block,
+.AP_Algorytm_Block,
+.AP_Tools_Block,
+.AP_Method_Block,
+.AP_Compare_Block,
+.AP_WTD_Block,
+.AP_Government_Block,
+.AP_Team_Block,
+.AP_Members_Block {
+  background: var(--LightBrown);
+}
+
+.AP_Term_Title,
+.AP_History_Title,
+.AP_Big_Title,
+.AP_Victim_Title,
+.AP_Types_Title,
+.AP_Algorytm_Title,
+.AP_Tools_Title,
+.AP_Method_Title,
+.AP_Compare_Title,
+.AP_WTD_Title,
+.AP_Government_Title,
+.AP_Team_Title,
+.AP_Members_Title,
+.AP_Sources_Title {
+  text-align: center;
+  font-size: 33px;
+  font-weight: bold;
+  color: var(--DarkBrown);
+}
+
+.AP_Term_Lead,
+.AP_History_P,
+.AP_Big_Lead,
+.AP_Victim_Lead,
+.AP_Types_P,
+.AP_Compare_Lead,
+.AP_Government_Lead,
+.AP_Team_Lead,
+.AP_Members_Lead {
+  margin-top: 1rem;
+  color: var(--DarkBrown);
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.AP_History_Block,
+.AP_Types_Block {
+  background: none;
+}
+
+.AP_History_Timeline {
+  margin-top: 1.5rem;
+}
+
+.AP_History_Line {
+  position: relative;
+  height: 5px;
+  background: var(--LightBrown);
+}
+
+.AP_History_Points {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.AP_History_Point {
+  position: relative;
+  cursor: pointer;
+}
+
+.AP_History_Dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--DarkBrown);
+  position: relative;
+  z-index: 2;
+}
+
+.AP_History_Dot::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: var(--DarkBrown);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.AP_History_Point.active .AP_History_Dot {
+  background: var(--DarkBrown);
+  transform: scale(1.2);
+}
+
+.AP_History_Point.active .AP_History_Dot::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 5px solid var(--LightBrown);
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.AP_History_Label {
+  font-size: 22px;
+  opacity: 75%;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--LightBrown);
+  padding: 8px 24px;
+  border-radius: 30px;
+  color: var(--DarkBrown);
+  white-space: nowrap;
+}
+
+.AP_History_Point.active .AP_History_Label {
+  font-weight: bold;
+  opacity: 100%;
+  color: var(--DarkBrown);
+}
+
+.AP_History_Content {
+  margin-top: 80px;
+}
+
+.AP_History_Fade-Out {
+  opacity: 0;
+}
+
+.AP_History_Fade-In {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.AP_History_Date {
+  background: var(--LightBrown);
+  display: inline-block;
+  padding: 14px 40px;
+  border-radius: 50px;
+  font-size: 50px;
+  font-weight: bold;
+  color: var(--DarkBrown);
+  margin-bottom: 20px;
+}
+
+.AP_History_CTitle {
+  font-size: 33px;
+  color: var(--DarkBrown);
+  font-weight: bold;
+}
+
+.AP_History_Text {
+  color: var(--DarkBrown);
+}
+
+.AP_History_P:last-child {
+  margin-bottom: 0;
+}
+
+.AP_Types_Block {
+  padding: 0;
+}
+
+.AP_Types_Cards {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3vw;
+}
+
+.AP_Types_Card {
+  align-content: center;
+  width: clamp(200px, 21vw, 315px);
+  background: var(--LightBrown);
+  color: var(--DarkBrown);
+  border-radius: 50px;
+  padding: 2.5rem;
+  cursor: pointer;
+}
+
+.AP_Types_Front {
+  text-align: center;
+}
+
+.AP_Types_Icon {
+  font-size: 50px;
+}
+
+.AP_Types_CTitle {
+  font-size: 33px;
+  font-weight: normal;
+}
+
+.AP_Types_Content {
+  display: none;
+}
+
+.AP_Types_Overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 50;
+}
+
+.AP_Types_Overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.AP_Types_ECard {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(1300px, calc(100% - clamp(20px, 10vw, 160px)));
+  max-width: 1300px;
+  height: fit-content;
+  max-height: 70vh;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  background: var(--LightBrown);
+  color: var(--DarkBrown);
+  border-radius: 50px;
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: 0 0px 100px black;
+}
+
+.AP_Types_ECard .AP_Types_H3 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 50px;
+}
+
+.AP_Types_ECard .AP_Types_P {
+  font-size: 22px;
+}
+
+.AP_Algorytm_Content,
+.AP_Tools_Content,
+.AP_Method_Content,
+.AP_WTD_Content,
+.AP_Sources_Content {
+  color: var(--DarkBrown);
+  font-size: 22px;
+}
+
+.AP_Algorytm_P,
+.AP_Tools_P,
+.AP_WTD_P,
+.AP_Tools_UL,
+.AP_Tools_LI--highlight,
+.AP_Method_LI,
+.AP_Sources_Content {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.AP_Algorytm_OL,
+.AP_Method_P,
+.AP_Method_UL,
+.AP_WTD_OL,
+.AP_WTD_UL,
+.AP_Sources_UL,
+.AP_Algorytm_P--highlight,
+.AP_Tools_P--highlight,
+.AP_Compare_Lead--highlight,
+.AP_Members_Lead--highlight {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.AP_Algorytm_LI,
+.AP_Tools_LI,
+.AP_WTD_LI,
+.AP_Sources_LI,
+.AP_Method_LI {
+  list-style-position: inside;
+}
+
+.AP_Compare_Img {
+  pointer-events: none;
+  margin-top: 1rem;
+  width: 50%;
+}
+
+.AP_Members_Block {
+  text-align: center;
+}
+
+.AP_Sources_Block {
+  background: var(--LightBrown);
+  color: var(--DarkBrown);
+}
+
+.AP_Footer {
+  text-align: center;
+}
+
+.AP_Footer_Text {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.FCommon0 {
+  fill: var(--DarkBlue);
+}
+.FCommon1 {
+  fill: white;
+}
+.FCommon2 {
+  fill: var(--SoftWhite);
+}
+
+@media (max-width: 767px) {
+  .AP_Name,
+  .AP_Navigation_Link,
+  .AP_Term_Title,
+  .AP_History_Title,
+  .AP_History_CTitle,
+  .AP_Big_Title,
+  .AP_Victim_Title,
+  .AP_Types_Title,
+  .AP_Types_CTitle,
+  .AP_Algorytm_Title,
+  .AP_Tools_Title,
+  .AP_Method_Title,
+  .AP_Compare_Title,
+  .AP_WTD_Title,
+  .AP_Government_Title,
+  .AP_Team_Title,
+  .AP_Members_Title,
+  .AP_Sources_Title {
+    font-size: clamp(24px, 4.3vw, 26px);
+  }
+
+  .AP_Block {
+    padding: 1.5rem;
+    border-radius: clamp(20px, 4.5vw, 29px);
+  }
+
+  .AP_Banner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .AP_Banner_SpeechBubble {
+    padding: 1.5rem;
+    border-radius: clamp(10px, 4.5vw, 19px);
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .AP_Banner_SpeechBubble::after {
+    right: auto;
+    top: auto;
+    left: 33%;
+    bottom: -20px;
+    border-left: none;
+    border-top: 20px solid var(--DarkBlue);
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: none;
+    transform: translateX(-50%);
+  }
+
+  .AP_Banner_Subtitle {
+    font-size: clamp(16px, 3.8vw, 30px);
+  }
+
+  .AP_Banner_Image {
+    width: 40%;
+  }
+
+  .AP_Algorytm_Content,
+  .AP_Tools_Content,
+  .AP_Method_Content,
+  .AP_WTD_Content,
+  .AP_Sources_Content,
+  .AP_Term_Lead,
+  .AP_History_P,
+  .AP_Big_Lead,
+  .AP_Victim_Lead,
+  .AP_Types_P,
+  .AP_Compare_Lead,
+  .AP_Government_Lead,
+  .AP_Team_Lead,
+  .AP_Members_Lead {
+    font-size: clamp(16px, 3.8vw, 17px);
+  }
+
+  .AP_History_Dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .AP_History_Label {
+    font-size: clamp(16px, 3.8vw, 17px);
+    padding: 5px 12px;
+  }
+
+  .AP_History_Date {
+    font-size: clamp(24px, 4.3vw, 26px);
+    padding: 10px 24px;
+    top: 25px;
+  }
+
+  .AP_Types_Block {
+    padding: 0;
+  }
+
+  .AP_Types_Card {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: clamp(20px, 4.5vw, 29px);
+    cursor: default;
+    pointer-events: auto;
+  }
+
+  .AP_Types_Content,
+  .AP_Types_H3 {
+    display: none;
+  }
+
+  .AP_Types_Card.open .AP_Types_Content {
+    display: block;
+    margin-top: 16px;
+  }
+
+  .AP_Types_Icon {
+    font-size: 47px;
+  }
+
+  .AP_Compare_Img {
+    width: 100%;
+  }
+
+  .AP_Footer_Text {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .AP_Name,
+  .AP_Navigation_Link,
+  .AP_Term_Title,
+  .AP_History_Title,
+  .AP_History_CTitle,
+  .AP_Big_Title,
+  .AP_Victim_Title,
+  .AP_Types_Title,
+  .AP_Types_CTitle,
+  .AP_Algorytm_Title,
+  .AP_Tools_Title,
+  .AP_Method_Title,
+  .AP_Compare_Title,
+  .AP_WTD_Title,
+  .AP_Government_Title,
+  .AP_Team_Title,
+  .AP_Members_Title,
+  .AP_Sources_Title {
+    font-size: clamp(27px, 2.8vw, 29px);
+  }
+
+  .AP_Block {
+    padding: clamp(1.5rem, 2.2vw, 2rem);
+    border-radius: clamp(30px, 4vw, 39px);
+  }
+
+  .AP_Banner_SpeechBubble {
+    padding: clamp(1.5rem, 2.2vw, 2rem);
+    border-radius: clamp(20px, 4vw, 29px);
+    max-width: 60%;
+  }
+
+  .AP_Banner_Subtitle {
+    font-size: clamp(31px, 4vw, 38px);
+  }
+
+  .AP_Algorytm_Content,
+  .AP_Tools_Content,
+  .AP_Method_Content,
+  .AP_WTD_Content,
+  .AP_Sources_Content,
+  .AP_Term_Lead,
+  .AP_History_P,
+  .AP_Big_Lead,
+  .AP_Victim_Lead,
+  .AP_Types_P,
+  .AP_Compare_Lead,
+  .AP_Government_Lead,
+  .AP_Team_Lead,
+  .AP_Members_Lead {
+    font-size: clamp(18px, 2.3vw, 19px);
+  }
+
+  .AP_History_Dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .AP_History_Label {
+    font-size: clamp(18px, 2.3vw, 19px);
+    padding: 6px 16px;
+    top: 26px;
+  }
+
+  .AP_History_Date {
+    font-size: clamp(27px, 2.8vw, 29px);
+    padding: 12px 32px;
+  }
+
+  .AP_Types_Block {
+    padding: 0;
+  }
+
+  .AP_Types_Card {
+    width: clamp(255px, 37vw, 355px);
+    padding: clamp(1.5rem, 2.2vw, 2rem);
+    border-radius: clamp(30px, 4vw, 39px);
+    cursor: default;
+    pointer-events: auto;
+  }
+
+  .AP_Types_Content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .AP_Types_Card.open .AP_Types_Content {
+    max-height: max-content;
+  }
+
+  .AP_Types_Icon {
+    font-size: 48px;
+  }
+
+  .AP_Compare_Img {
+    width: 100%;
+  }
+
+  .AP_Footer_Text {
+    font-size: clamp(12px, 1.5vw, 13px);
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1299px) {
+  .AP_Name,
+  .AP_Navigation_Link,
+  .AP_Term_Title,
+  .AP_History_Title,
+  .AP_History_CTitle,
+  .AP_Big_Title,
+  .AP_Victim_Title,
+  .AP_Types_Title,
+  .AP_Types_CTitle,
+  .AP_Algorytm_Title,
+  .AP_Tools_Title,
+  .AP_Method_Title,
+  .AP_Compare_Title,
+  .AP_WTD_Title,
+  .AP_Government_Title,
+  .AP_Team_Title,
+  .AP_Members_Title,
+  .AP_Sources_Title {
+    font-size: clamp(30px, 2.9vw, 32px);
+  }
+
+  .AP_Block {
+    padding: clamp(2rem, 2.3vw, 2.4rem);
+    border-radius: clamp(40px, 3.9vw, 49px);
+  }
+
+  .AP_Banner_SpeechBubble {
+    padding: clamp(2rem, 2.3vw, 2.4rem);
+    border-radius: clamp(30px, 3.9vw, 39px);
+    max-width: 60%;
+  }
+
+  .AP_Banner_Subtitle {
+    font-size: clamp(39px, 3.8vw, 49px);
+  }
+
+  .AP_Algorytm_Content,
+  .AP_Tools_Content,
+  .AP_Method_Content,
+  .AP_WTD_Content,
+  .AP_Sources_Content,
+  .AP_Term_Lead,
+  .AP_History_P,
+  .AP_Big_Lead,
+  .AP_Victim_Lead,
+  .AP_Types_P,
+  .AP_Compare_Lead,
+  .AP_Government_Lead,
+  .AP_Team_Lead,
+  .AP_Members_Lead {
+    font-size: clamp(20px, 2vw, 21px);
+  }
+
+  .AP_History_Dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  .AP_History_Label {
+    font-size: clamp(20px, 2vw, 21px);
+    padding: 7px 20px;
+    top: 28px;
+  }
+
+  .AP_History_Date {
+    font-size: clamp(30px, 2.9vw, 32px);
+    padding: 14px 40px;
+  }
+
+  .AP_Types_Block {
+    padding: 0;
+  }
+
+  .AP_Types_Card {
+    padding: clamp(2rem, 2.3vw, 2.4rem);
+    border-radius: clamp(40px, 3.9vw, 49px);
+    cursor: default;
+    pointer-events: auto;
+  }
+
+  .AP_Types_Icon {
+    font-size: 49px;
+  }
+
+  .AP_Types_ECard {
+    padding: clamp(2rem, 2.3vw, 2.4rem);
+    border-radius: clamp(40px, 3.9vw, 49px);
+  }
+
+  .AP_Types_ECard .AP_Types_H3 {
+    font-size: clamp(30px, 2.9vw, 49px);
+  }
+
+  .AP_Footer_Text {
+    font-size: 14px;
+  }
+}
